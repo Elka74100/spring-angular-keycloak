@@ -1,7 +1,6 @@
 server:
   port: 8081
 
-####### resource server configuration properties
 spring:
   jpa:
     defer-datasource-initialization: true
@@ -9,5 +8,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/myrealm
           jwk-set-uri: http://localhost:8080/realms/myrealm/protocol/openid-connect/certs
