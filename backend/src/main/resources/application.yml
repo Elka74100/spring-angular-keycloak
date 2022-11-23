@@ -2,8 +2,7 @@ server:
   port: 8081
 
 spring:
-  jpa:
-    defer-datasource-initialization: true
+
   security:
     oauth2:
       resourceserver:

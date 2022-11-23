@@ -3,10 +3,7 @@ package com.elka.backend.web;
 import com.elka.backend.persistence.Foo;
 import com.elka.backend.service.FooService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +18,10 @@ public class FooController {
     @GetMapping()
     public List<Foo> getFoos() {
         return fooService.getFoos();
+    }
+
+    @PostMapping()
+    public void addFoo() {
+        fooService.addFoo();
     }
 }

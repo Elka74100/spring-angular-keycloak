@@ -1,8 +1,7 @@
 package com.elka.backend.persistence;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,7 +10,9 @@ import javax.persistence.*;
 @Setter
 public class Foo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
+    private String userId;
+
 }

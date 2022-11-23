@@ -21,6 +21,19 @@ public class FooService {
             return fooRepository.findAll();
         }
 
+        if (auth != null) {
+            return fooRepository.findAllByUserId(auth.getName());
+        }
+
         return Collections.emptyList();
+    }
+
+    public void addFoo() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Foo foo = new Foo();
+        foo.setName("dou");
+        foo.setUserId(auth.getName());
+
+        fooRepository.save(foo);
     }
 }

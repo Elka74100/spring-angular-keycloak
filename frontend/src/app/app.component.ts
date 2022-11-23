@@ -23,12 +23,16 @@ export class AppComponent {
     this.oauthService.initCodeFlow();
   }
 
+  logout() {
+    this.oauthService.logOut();
+  }
+
+  addFoo() {
+    this.appService.addFoo().subscribe()
+  }
+
   private configure() {
     this.oauthService.configure(authConfig);
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
-  }
-
-  logout() {
-    this.oauthService.logOut();
   }
 }
