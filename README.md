@@ -19,9 +19,10 @@ Keycloak UI will be running on http://localhost:8080
 ## Initialize Keycloak config
 1. Create a realm called "myrealm"
 2. Create a client called "myclient"
-3. Create a role called "admin"
-4. Create one user which has the "admin" role
-5. Create as many users you want without specific role
+3. Fill in Valid redirect URIs, Valid post logout and Web origin with "http://localhost:4200"
+4. Create a role called "admin"
+5. Create one user which has the "admin" role
+6. Create as many users you want without specific role
 
 ## Run the backend
 ```sh
