@@ -1,7 +1,7 @@
 <a *ngIf="!isAuthorized" (click)="login()">Login</a>
 <div *ngIf="isAuthorized">
     <a  (click)="logout()">Logout</a>
-    <h1>{{text}}</h1>
+    <h1>{{text$ | async}}</h1>
     <a (click)="addFoo()">add foo</a>
 </div>
 
