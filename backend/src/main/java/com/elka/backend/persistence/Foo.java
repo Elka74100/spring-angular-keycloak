@@ -1,6 +1,5 @@
 package com.elka.backend.persistence;
 
-
 import lombok.*;
 
 import javax.persistence.*;
