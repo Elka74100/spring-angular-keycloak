@@ -1,8 +1,8 @@
-<a (click)="login()">Login</a>
-<p>Refresh the browser after login to view the text</p>
-<h1>{{text}}</h1>
-<a (click)="addFoo()">add foo</a>
+<a *ngIf="!isAuthorized" (click)="login()">Login</a>
+<div *ngIf="isAuthorized">
+    <a  (click)="logout()">Logout</a>
+    <h1>{{text}}</h1>
+    <a (click)="addFoo()">add foo</a>
+</div>
 
-<br>
-<a (click)="logout()">Logout</a>
 <router-outlet></router-outlet>

@@ -11,15 +11,27 @@ import { authConfig } from './authConfig';
 export class AppComponent {
   title = 'frontend';
   text = '';
+  isAuthorized = false;
 
   constructor(private oauthService: OAuthService, private appService: AppService) {
-    this.configure();
-    appService.hello().subscribe(response => {
-      this.text = response;
-    });
+    this.initAuth();
   }
 
-  login() {
+  ngOnInit() {
+    if(this.oauthService.hasValidAccessToken()) {
+      this.isAuthorized = true
+      this.updateText()
+    } else {
+      this.oauthService.events.subscribe(event => {
+        if (event.type === "token_received") {
+          this.isAuthorized = true
+          this.updateText()
+        }
+      })
+    }
+  }
+
+  login() {    
     this.oauthService.initCodeFlow();
   }
 
@@ -29,11 +41,18 @@ export class AppComponent {
 
   addFoo() {
     this.appService.addFoo().subscribe()
+    this.updateText()
   }
 
-  private configure() {
+  private initAuth() {
     this.oauthService.configure(authConfig);
     this.oauthService.setupAutomaticSilentRefresh();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
+  }
+
+  private updateText() {
+    this.appService.hello().subscribe(response => {
+      this.text = response;
+    })
   }
 }
