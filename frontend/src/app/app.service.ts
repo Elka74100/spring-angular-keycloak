@@ -12,15 +12,13 @@ export class AppService {
   }
 
   hello(): Observable<string> {
-    const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
     return this.httpClient.get("http://localhost:8081/api/",
-      {headers, responseType: 'text'});
+      {headers: this.headers, responseType: 'text'});
   }
 
   addFoo() {
-    const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
     return this.httpClient.post("http://localhost:8081/api/", null,
-    {headers, responseType: 'text'});
+    {headers: this.headers, responseType: 'text'});
   }
 
 }
