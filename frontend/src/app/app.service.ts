@@ -11,7 +11,7 @@ export class AppService {
   constructor(private httpClient: HttpClient) {
   }
 
-  hello(): Observable<string> {
+  getFoos(): Observable<string> {
     return this.httpClient.get("http://localhost:8081/api/",
       {headers: this.headers, responseType: 'text'});
   }

@@ -21,12 +21,12 @@ export class AppComponent {
   ngOnInit() {
     if(this.oauthService.hasValidAccessToken()) {
       this.isAuthorized = true
-      this.text$ =  this.appService.hello()
+      this.text$ =  this.appService.getFoos()
     } else {
       this.oauthService.events.subscribe(event => {
         if (event.type === "token_received") {
           this.isAuthorized = true
-          this.text$ = this.appService.hello()
+          this.text$ = this.appService.getFoos()
         }
       })
     }
@@ -42,7 +42,7 @@ export class AppComponent {
 
   addFoo() {
     this.appService.addFoo().subscribe(() => {
-      this.text$ = this.appService.hello()
+      this.text$ = this.appService.getFoos()
     })
   }
 
