@@ -8,6 +8,7 @@ This is a Spring Boot Angular App secured with Keycloak
 * Java 17
 * Node 16.16.0
 * Angular 14.2.2
+* React 18.2 with Redux Toolkit 1.9.1
 
 ## Run flowable-ui
 ```sh
@@ -34,4 +35,14 @@ Keycloak UI will be running on http://localhost:8080
 cd frontend
 npm i
 ng serve 
+```
+
+## React Keycloak config
+Add in the Keycloak UI "http://localhost:3000/*" in Valid redirect URIs and Valid post logout redirect URIs and "http://localhost:3000" in Web origin
+
+## Run the React frontend
+```sh
+cd react-frontend
+npm i
+npm run start
 ```
