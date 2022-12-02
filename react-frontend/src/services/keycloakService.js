@@ -42,6 +42,7 @@ const getUsername = () => _kc.tokenParsed?.preferred_username;
 const hasRole = (roles) => roles.some((role) => _kc.hasRealmRole(role));
 
 const KeycloakService = {
+  _kc,
   initKeycloak,
   doLogin,
   doLogout,
